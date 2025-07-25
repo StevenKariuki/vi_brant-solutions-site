@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Services | Vi_brant Solutions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #111;
+      color: #eee;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #000;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(255, 215, 0, 0.2);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: gold;
+    }
+
+    .logo span {
+      color: #fff;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #ccc;
+      transition: 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      color: gold;
+    }
+
+    /* Hero */
+    .services-hero {
+      text-align: center;
+      padding: 5rem 2rem 2rem;
+      background: linear-gradient(to bottom, #111, #222);
+    }
+
+    .services-hero h1 {
+      font-size: 3rem;
+      color: gold;
+    }
+
+    .services-hero p {
+      font-size: 1.2rem;
+      color: #aaa;
+      margin-top: 1rem;
+    }
+
+    /* Services */
+    .services-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+    }
+
+    .service-card {
+      background-color: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+      transform: translateY(-5px) scale(1.02);
+    }
+
+    .service-card h3 {
+      color: gold;
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #000;
+      padding: 2rem;
+      text-align: center;
+      color: #aaa;
+    }
+
+    footer a {
+      color: gold;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .services-hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Vi_brant<span>Solutions</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </header>
+
+  <!-- Hero -->
+  <section class="services-hero" data-aos="fade-down">
+    <h1>Our Services</h1>
+    <p>Premium tech + creative solutions to bring your ideas to life</p>
+  </section>
+
+  <!-- Service Cards -->
+  <section class="services-section">
+    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+      <h3>Basic Website</h3>
+      <p>Simple but stunning one-pagers, portfolio or personal websites built for speed and style.</p>
+    </div>
+    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+      <h3>Business / E-commerce Website</h3>
+      <p>Custom websites with product listings, payments, admin panel, and full responsiveness.</p>
+    </div>
+    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+      <h3>Logo Design</h3>
+      <p>Unique, memorable brand identities tailored to your vibe and industry.</p>
+    </div>
+    <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+      <h3>Posters & Banners</h3>
+      <p>Event posters, social media flyers, digital cards — you name it, we design it 🔥</p>
+    </div>
+    <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+      <h3>Social Media Marketing</h3>
+      <p>Content plans, ad campaigns, and growth strategies to elevate your online presence.</p>
+    </div>
+    <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+      <h3>Custom Requests</h3>
+      <p>Need something outside the box? Let’s talk. We do custom digital projects too.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Vi_brant Solutions. All rights reserved.</p>
+    <div>
+      <a href="#">Privacy Policy</a> | <a href="#">Terms</a>
+    </div>
+  </footer>
+
+  <!-- AOS Animate On Scroll -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+</body>
+</html>

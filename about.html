@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Vi_brant Solutions</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #0a0a0f;
+      color: #fefefe;
+      line-height: 1.6;
+    }
+
+    /* Navbar (reused from index.html) */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      background-color: #111;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: gold;
+    }
+
+    .logo span {
+      color: #fff;
+    }
+
+    .navbar nav a {
+      color: #fff;
+      margin-left: 1.2rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar nav a:hover {
+      color: gold;
+    }
+
+    .cta-btn {
+      background-color: gold;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      margin-left: 2rem;
+      font-weight: bold;
+    }
+
+    /* About Hero Section */
+    .about-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 6rem 2rem;
+      background: linear-gradient(to bottom right, #101016, #1e1e24);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: -20%;
+      width: 140%;
+      height: 140%;
+      background: radial-gradient(circle, rgba(255, 223, 94, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+      filter: blur(120px);
+      z-index: -1;
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin-bottom: 3rem;
+    }
+
+    .about-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      color: #ffd700;
+      text-shadow: 0px 4px 20px rgba(255, 215, 0, 0.4);
+    }
+
+    .about-content p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin: 0.8rem 0;
+      font-weight: 300;
+      color: #ddd;
+    }
+
+    .about-img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 215, 0, 0.3);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .about-img:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.4);
+    }
+
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .fade-in-up.delay-1 { animation-delay: 0.4s; }
+    .fade-in-up.delay-2 { animation-delay: 0.8s; }
+    .fade-in-up.delay-3 { animation-delay: 1.2s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* CTA Button */
+    .cta-button { 
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: 'Roboto', sans-serif;
+      color: #101016;
+      background: linear-gradient(to right, #ffd700, #ffc700);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+
+    }
+
+    .cta-button:hover {
+      background: linear-gradient(to right, #ffc700, #ffd700);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(255, 215, 0, 0.4);
+    }
+    .btn-text{
+        text-decoration: none;
+    }
+
+    /* Footer */
+.footer {
+  background: linear-gradient(45deg, #0d0d0d, #1a1a1a);
+  padding: 4rem 2rem;
+  color: #eee;
+  font-size: 0.95rem;
+  border-top: 2px solid gold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer .footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  gap: 2rem;
+  border-bottom: 1px solid #444;
+  padding-bottom: 2rem;
+}
+
+.footer .footer-top .col {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer h4 {
+  color: gold;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.footer .socials a {
+  color: #ffcc00;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.footer .socials a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  text-align: center;
+  color: #888;
+}
+
+.footer-bottom i {
+  color: #bbb;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Vi_brant<span>Solutions</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="index.html">Contact</a>
+      <a href="index.html" class="cta-btn">Get Started</a>
+    </nav>
+  </header>
+
+  <!-- About Hero -->
+  <section class="about-hero">
+    <div class="about-content">
+      <h1 class="fade-in-up">Who We Are</h1>
+      <p class="fade-in-up delay-1">
+        At Vi_brant Solutions, we don’t just follow trends — we create them. Seamlessly blending cutting-edge technology with timeless design, we deliver solutions that redefine excellence.
+      </p>
+      <p class="fade-in-up delay-2">
+        Whether it's launching your startup, elevating your brand, or revolutionizing industries, our custom-tailored approach ensures success at every stage of your journey.
+      </p>
+      <p class="fade-in-up delay-2">
+        Founded with vision and precision, <strong>Steven</strong>, our CEO, leads with innovation, clarity, and real hustle. Under his leadership, Vi_brant doesn’t just build — we build **bold**.
+      </p>
+      <button class="cta-button fade-in-up delay-3"> <a class="btn-text" href="team.html">Meet the Team</a></button>
+    </div>
+    <img src="/assets/images/Logo_3D.jpg" alt="Team at Work" class="about-img fade-in-up delay-3" />
+  </section>
+
+ <!-- Footer -->
+<footer class="footer" id="contact">
+  <div class="footer-top">
+    <div class="col">
+      <h4>About Us</h4>
+      <p>Vi_brant Solutions is where creativity meets functionality. We bring ideas to life with tech & design that works for <b>you</b>.</p>
+    </div>
+    <div class="col">
+      <h4>Quick Links</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="#services" style="color: #bbb;">Services</a></li>
+        <li><a href="#about" style="color: #bbb;">About Us</a></li>
+        <li><a href="#team" style="color: #bbb;">Meet the Team</a></li>
+        <li><a href="#contact" style="color: #bbb;">Contact</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>Connect With Us</h4>
+      <div class="socials">
+        <a href="#"><i class="fab fa-instagram"></i> Instagram</a><br />
+        <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a><br />
+        <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Vi_brant Solutions. All rights reserved.</p>
+    <p><i>Your Vision, Our Network, One Seamless Solution.</i></p>
+  </div>
+</footer>
+
+
+</body>
+</html>

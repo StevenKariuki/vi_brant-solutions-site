@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vi_brant Solutions - Bold Tech, Real Impact." />
+  <title>Vi_brant Solutions</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Reset + Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0d0d0d;
+  color: #f5f5f5;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+/* Loader Styles */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0d0d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+.loader-inner {
+  text-align: center;
+  animation: fadeIn 1s ease forwards;
+}
+
+.loader-logo {
+  width: 200px;
+  border-radius: 20px;
+  /* height: 120px; */
+  animation: pulse-glow 2s infinite ease-in-out;
+  filter: drop-shadow(0 0 20px gold);
+}
+
+.loader-text {
+  color: gold;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  font-weight: bold;
+  animation: fadeIn 2s ease forwards;
+  letter-spacing: 1px;
+}
+
+/* Pulse with glow effect */
+@keyframes pulse-glow {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px gold);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 25px #ffd700);
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#main-content {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0d0d0d;
+  padding: 1.5rem 3rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: gold;
+}
+
+.logo-text span {
+  color: #fff;
+}
+
+nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #ccc;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: gold;
+}
+
+.cta-btn {
+  background: gold;
+  color: #0d0d0d;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  margin-left: 2rem;
+  font-weight: bold;
+}
+
+.cta-btn:hover {
+  background: #fff;
+  color: #0d0d0d;
+}
+
+.cta-btn {
+  background-color: gold;
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  margin-left: 2rem;
+}
+
+/* Hero */
+.hero {
+  padding: 6rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #0d0d0d 60%, #1a1a1a);
+  background: url(/assets/images/Image_fx\ \(54\).jpg);
+  background-repeat: no-repeat;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-btn {
+  background-color: gold;
+  color: #000;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Services */
+.section-intro{
+    padding-bottom: 10px;
+}
+.services {
+  padding: 4rem 2rem;
+  background: rgba(0, 0, 0, 0.85);
+  color: gold;
+  text-align: center;
+}
+
+.swiper {
+  padding: 2rem 0;
+}
+
+.swiper-slide {
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid gold;
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.swiper-slide:hover {
+  transform: scale(1.05);
+  background: rgba(255, 215, 0, 0.15);
+}
+
+.service-card h3 {
+  color: gold;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: gold;
+}
+
+.swiper-pagination-bullet {
+  background: gold;
+}
+
+.services h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid #333;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: gold;
+}
+
+.service-card h3 {
+  color: gold;
+  margin-bottom: 0.5rem;
+}
+.carousel-section {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: #111;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+  perspective: 1000px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.carousel-card {
+  min-width: 90%;
+  max-width: 600px;
+  background: linear-gradient(145deg, #1c1c1c, #2a2a2a);
+  padding: 2.5rem;
+  margin: 0 auto;
+  border-radius: 24px;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transform: perspective(1000px) rotateY(0deg) scale(0.95);
+  transition: transform 1.5s ease, box-shadow 0.5s ease;
+  color: #f0f0f0;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.carousel-card:hover {
+  transform: perspective(1000px) rotateY(2deg) scale(0.7);
+  box-shadow:
+    0 20px 50px rgba(246, 250, 4, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.carousel-card h3 {
+  font-size: 1.5rem;
+  color: gold;
+  margin-bottom: 0.8rem;
+}
+
+.carousel-card p {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .carousel-card {
+    min-width: 95%;
+    padding: 2rem;
+  }
+}
+
+.carousel-card.active {
+  transform: scale(1) rotateY(0deg);
+  z-index: 5;
+}
+
+.carousel-nav {
+  margin-top: 1.5rem;
+}
+
+.carousel-nav button {
+  background: #f0c000;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin: 0 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.carousel-nav button:hover {
+  background: #fff200;
+}
+
+/* about images */
+.img-about {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.carousel-card:hover .img-about {
+  transform: scale(1.03);
+}
+
+
+/* CTA Section */
+.cta-section {
+  background: #111;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.cta-section h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.cta-section .cta-btn {
+  background-color: gold;
+  color: #000;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(45deg, #0d0d0d, #1a1a1a);
+  padding: 4rem 2rem;
+  color: #eee;
+  font-size: 0.95rem;
+  border-top: 2px solid gold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer .footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  gap: 2rem;
+  border-bottom: 1px solid #444;
+  padding-bottom: 2rem;
+}
+
+.footer .footer-top .col {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer h4 {
+  color: gold;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.footer .socials a {
+  color: #ffcc00;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.footer .socials a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  text-align: center;
+  color: #888;
+}
+
+.footer-bottom i {
+  color: #bbb;
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .services h2, .cta-section h2 {
+    font-size: 1.8rem;
+  }
+}
+
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Swiper CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+</head>
+<body>
+    <!-- Loader -->
+    <div id="loader">
+    <div class="loader-inner">
+        <img src="/assets/images/Logo_3D.jpg" alt="Loading..." class="loader-logo" />
+        <p class="loader-text">Vi_brant Solutions</p>
+    </div>
+    </div>
+
+
+    <!-- Main Content -->
+    <div id="main-content" style="display: none;">
+
+  <!-- Navbar -->
+  <header class="navbar">
+  <div class="logo-container">
+    <img src="/assets/images/Logo.jpeg" alt="Vi_brant Solutions Logo" class="logo-img">
+    <div class="logo-text">Vi_brant<span>Solutions</span></div>
+  </div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="#contact" class="cta-btn">Get Started</a>
+  </nav>
+</header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Digital Plug. Real Impact.</h1>
+      <p>Custom Solutions. Creative Delivery. Built for You.</p>
+      <a href="#services" class="hero-btn">Explore Our Services</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+ <section id="services" class="carousel-section">
+  <h2>What We Do</h2>
+  <p class="section-intro">
+    We don’t just deliver — we connect you with the right creators.
+  </p>
+
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <div class="carousel-card">
+        <img class="img-about" src="/assets/images/web.jpg" alt="">
+        <h3>Web Development</h3>
+        <p>We craft blazing-fast, responsive websites that don’t just look good — they work hard too.</p>
+      </div>
+
+      <div class="carousel-card">
+        <img class="img-about" src="/assets/images/AI.jpg" alt="">
+        <h3>AI Integration</h3>
+        <p>From smart chatbots to intelligent automation — we inject real AI into your workflow, not buzzwords.</p>
+      </div>
+
+      <div class="carousel-card">
+        <img class="img-about" src="/assets/images/creative_.jpg" alt="">
+        <h3>Creative Media</h3>
+        <p>Bold branding. Cinematic visuals. Content that actually speaks to people.</p>
+      </div>
+
+      <div class="carousel-card">
+        <img class="img-about" src="/assets/images/tech_consolting.jpg  " alt="">
+        <h3>Tech Consulting</h3>
+        <p>Have an idea? We help you build it right — from MVPs to scalable digital products.</p>
+      </div>
+
+      <div class="carousel-card">
+        <img class="img-about" src="/assets/images/System_design.jpg" alt="">
+        <h3>System Design</h3>
+        <p>From backend architecture to database strategy — we design systems that scale with you.</p>
+      </div>
+
+      <div class="carousel-card">
+        <img class="img-about" src="/assets/images/robotics.jpg" alt="">
+        <h3>Automation & Bots</h3>
+        <p>We automate the boring stuff so your team can focus on what matters. Think less manual work, more magic.</p>
+      </div>
+    </div>
+
+    <div class="carousel-nav">
+      <button id="prev">&#8592;</button>
+      <button id="next">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Call To Action -->
+  <section class="cta-section">
+    <h2>Ready to Build Something Brilliant?</h2>
+    <a href="contact.html" class="cta-btn">Let’s Talk</a>
+  </section>
+
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="footer" id="contact">
+  <div class="footer-top">
+    <div class="col">
+      <h4>About Us</h4>
+      <p>Vi_brant Solutions is where creativity meets functionality. We bring ideas to life with tech & design that works for *you*.</p>
+    </div>
+    <div class="col">
+      <h4>Quick Links</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="#services" style="color: #bbb;">Services</a></li>
+        <li><a href="#about" style="color: #bbb;">About Us</a></li>
+        <li><a href="#team" style="color: #bbb;">Meet the Team</a></li>
+        <li><a href="#contact" style="color: #bbb;">Contact</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>Connect With Us</h4>
+      <div class="socials">
+        <a href="#"><i class="fab fa-instagram"></i> Instagram</a><br />
+        <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a><br />
+        <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Vi_brant Solutions. All rights reserved.</p>
+    <p><i>Your Vision, Our Network, One Seamless Solution.</i></p>
+  </div>
+</footer>
+
+</div>
+  <script>
+
+    window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    const content = document.getElementById("main-content");
+
+    // Fade out loader
+    loader.style.opacity = "1";
+
+    setTimeout(() => {
+      loader.style.display = "none";
+      content.style.display = "block";
+      content.style.opacity = "1";
+    }, 3000); // matches the fade duration in CSS
+  });
+
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      640: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 },
+    },
+  });
+  const track = document.querySelector('.carousel-track');
+  const cards = document.querySelectorAll('.carousel-card');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+  let current = 0;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${current * 100}%)`;
+    cards.forEach((card, i) => {
+      card.classList.toggle('active', i === current);
+    });
+  }
+
+  prevBtn.addEventListener('click', () => {
+    current = (current - 1 + cards.length) % cards.length;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    current = (current + 1) % cards.length;
+    updateCarousel();
+  });
+
+  // Auto-slide every 6s
+  setInterval(() => {
+    current = (current + 1) % cards.length;
+    updateCarousel();
+  }, 6000);
+
+  // Init
+  updateCarousel();
+
+
+</script>
+
+</body>
+</html>

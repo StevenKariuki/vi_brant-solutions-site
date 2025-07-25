@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Vi_brant Solutions</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome (for icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <style>
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #0a0a0f;
+      color: #fefefe;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      background-color: #111;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      transition: background 0.3s ease;
+    }
+
+    .navbar.sticky {
+      background-color: #000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: gold;
+    }
+
+    .logo span {
+      color: #fff;
+    }
+
+    .navbar nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .navbar nav a {
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar nav a:hover {
+      color: gold;
+    }
+
+    .cta-btn {
+      background-color: gold;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #ffc700;
+    }
+
+    /* Hamburger Menu */
+    .menu-icon {
+      font-size: 1.8rem;
+      display: none;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .navbar nav {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        padding: 1rem;
+      }
+
+      .navbar.open nav {
+        display: flex;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+    }
+
+    /* Hero Section */
+    .about-hero {
+      position: relative;
+      padding: 6rem 1.5rem;
+      text-align: center;
+      background: linear-gradient(to bottom right, #101016, #1e1e24);
+      overflow: hidden;
+      color: #fefefe;
+    }
+
+    .about-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      color: #ffd700;
+      text-shadow: 0 2px 15px rgba(255, 215, 0, 0.5);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .about-hero p {
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+      line-height: 1.8;
+      color: #ddd;
+    }
+
+    .about-img {
+      margin-top: 3rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.4);
+      animation: fadeIn 1.5s ease;
+    }
+
+    /* Hero Button */
+    .cta-button {
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      color: #101016;
+      background: linear-gradient(to right, #ffd700, #ffc700);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: bold;
+      text-transform: uppercase;
+      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(255, 215, 0, 0.6);
+    }
+
+    /* Meet the Team Section */
+    .team-section {
+      padding: 4rem 1.5rem;
+      text-align: center;
+      background: #111;
+      color: #fefefe;
+    }
+
+    .team-section h2 {
+      font-family: 'Playfair Display', serif;
+      color: #ffd700;
+      margin-bottom: 2rem;
+    }
+
+    .team-section .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .team-card {
+      background: #1a1a1f;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .team-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 2px solid gold;
+    }
+
+    .team-card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #ffd700;
+    }
+
+    .team-card p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .team-card:hover {
+      transform: translateY(-10px);
+    }
+
+    /* Animations */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    /* Footer */
+    .footer {
+  background: linear-gradient(45deg, #0d0d0d, #1a1a1a);
+  padding: 4rem 2rem;
+  color: #eee;
+  font-size: 0.95rem;
+  border-top: 2px solid gold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer .footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  gap: 2rem;
+  border-bottom: 1px solid #444;
+  padding-bottom: 2rem;
+}
+
+.footer .footer-top .col {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer h4 {
+  color: gold;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.footer .socials a {
+  color: #ffcc00;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.footer .socials a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  text-align: center;
+  color: #888;
+}
+
+.footer-bottom i {
+  color: #bbb;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Vi_brant<span>Solutions</span></div>
+    <i class="fas fa-bars menu-icon"></i>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="#" class="cta-btn">Get Started</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <h1>Who We Are</h1>
+    <p>Vi_brant Solutions builds bold, blending cutting-edge technology with timeless design to deliver premium digital experiences.</p>
+    <img src="/assets/images/tech_consolting.jpg" alt="Team at Work" class="about-img" />
+    <button class="cta-button">Learn More</button>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <h2>Meet the Team</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="https://via.placeholder.com/100" alt="CEO" />
+        <h3>Steven</h3>
+        <p>CEO & Visionary</p>
+      </div>
+      <div class="team-card">
+        <img src="https://via.placeholder.com/100" alt="Designer" />
+        <h3>Amelia</h3>
+        <p>Lead Designer</p>
+      </div>
+      <div class="team-card">
+        <img src="https://via.placeholder.com/100" alt="Developer" />
+        <h3>James</h3>
+        <p>Head Developer</p>
+      </div>
+    </div>
+  </section>
+
+   <!-- Footer -->
+<footer class="footer" id="contact">
+  <div class="footer-top">
+    <div class="col">
+      <h4>About Us</h4>
+      <p>Vi_brant Solutions is where creativity meets functionality. We bring ideas to life with tech & design that works for *you*.</p>
+    </div>
+    <div class="col">
+      <h4>Quick Links</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="#services" style="color: #bbb;">Services</a></li>
+        <li><a href="#about" style="color: #bbb;">About Us</a></li>
+        <li><a href="#team" style="color: #bbb;">Meet the Team</a></li>
+        <li><a href="#contact" style="color: #bbb;">Contact</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>Connect With Us</h4>
+      <div class="socials">
+        <a href="#"><i class="fab fa-instagram"></i> Instagram</a><br />
+        <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a><br />
+        <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Vi_brant Solutions. All rights reserved.</p>
+    <p><i>Your Vision, Our Network, One Seamless Solution.</i></p>
+  </div>
+</footer>
+</body>
+</html>

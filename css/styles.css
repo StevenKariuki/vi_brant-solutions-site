@@ -1,0 +1,318 @@
+/* Reset + Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0d0d0d;
+  color: #f5f5f5;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background-color: #111;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: gold;
+}
+
+.logo span {
+  color: #fff;
+}
+
+.navbar nav a {
+  color: #fff;
+  margin-left: 1.2rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar nav a:hover {
+  color: gold;
+}
+
+.cta-btn {
+  background-color: gold;
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  margin-left: 2rem;
+}
+
+/* Hero */
+.hero {
+  padding: 6rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #0d0d0d 60%, #1a1a1a);
+  background: url(/assets/images/Image_fx\ \(54\).jpg);
+  background-repeat: no-repeat;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-btn {
+  background-color: gold;
+  color: #000;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Services */
+.section-intro{
+    padding-bottom: 10px;
+}
+.services {
+  padding: 4rem 2rem;
+  background: rgba(0, 0, 0, 0.85);
+  color: gold;
+  text-align: center;
+}
+
+.swiper {
+  padding: 2rem 0;
+}
+
+.swiper-slide {
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid gold;
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.swiper-slide:hover {
+  transform: scale(1.05);
+  background: rgba(255, 215, 0, 0.15);
+}
+
+.service-card h3 {
+  color: gold;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: gold;
+}
+
+.swiper-pagination-bullet {
+  background: gold;
+}
+
+.services h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid #333;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: gold;
+}
+
+.service-card h3 {
+  color: gold;
+  margin-bottom: 0.5rem;
+}
+.carousel-section {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: #111;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+  perspective: 1000px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.carousel-card {
+  min-width: 90%;
+  max-width: 600px;
+  background: linear-gradient(145deg, #1c1c1c, #2a2a2a);
+  padding: 2.5rem;
+  margin: 0 auto;
+  border-radius: 24px;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transform: perspective(1000px) rotateY(0deg) scale(0.95);
+  transition: transform 1.5s ease, box-shadow 0.5s ease;
+  color: #f0f0f0;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.carousel-card:hover {
+  transform: perspective(1000px) rotateY(2deg) scale(0.7);
+  box-shadow:
+    0 20px 50px rgba(246, 250, 4, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.carousel-card h3 {
+  font-size: 1.5rem;
+  color: gold;
+  margin-bottom: 0.8rem;
+}
+
+.carousel-card p {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .carousel-card {
+    min-width: 95%;
+    padding: 2rem;
+  }
+}
+
+.carousel-card.active {
+  transform: scale(1) rotateY(0deg);
+  z-index: 5;
+}
+
+.carousel-nav {
+  margin-top: 1.5rem;
+}
+
+.carousel-nav button {
+  background: #f0c000;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin: 0 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.carousel-nav button:hover {
+  background: #fff200;
+}
+
+/* about images */
+.img-about {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.carousel-card:hover .img-about {
+  transform: scale(1.03);
+}
+
+
+/* CTA Section */
+.cta-section {
+  background: #111;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.cta-section h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.cta-section .cta-btn {
+  background-color: gold;
+  color: #000;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Footer */
+.footer {
+  background: #0d0d0d;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid #222;
+}
+
+.footer .socials a {
+  color: gold;
+  margin: 0 0.6rem;
+  text-decoration: none;
+}
+
+.footer .socials a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .services h2, .cta-section h2 {
+    font-size: 1.8rem;
+  }
+}
